@@ -1,0 +1,16 @@
+{
+    "baseUrl": ".",
+    "rootDir": "source",
+    "outDir": "dist",
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "declaration": true,
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "module": "CommonJS"
+    }
+}
