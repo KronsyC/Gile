@@ -1,8 +1,8 @@
 {
   "name": "gile",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A custom JWT implementation",
-  "main": "index.js",
+  "main": "./dist",
   "repository": "https://github.com/KronsyC/Gile",
   "author": "KronsyC",
   "license": "MIT",
@@ -11,12 +11,14 @@
     "source"
   ],
   "dependencies": {
-    "express": "^4.17.1",
     "jws": "^4.0.0"
   },
   "devDependencies": {
     "@types/jws": "^3.2.4",
     "@types/node": "^16.11.9",
     "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "publish": "tsc&&npm publish"
   }
 }
