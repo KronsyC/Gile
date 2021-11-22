@@ -1,16 +1,22 @@
 import GileOptions from "./interfaces/GileOptions";
 /**
- * This function configures gile, Always call this function before using any gile features, otherwise you will be thrown an Error
- * usage example:
+ * Configure gile, Always call this function before using any gile features, otherwise you will be thrown an Error
+ *
  * ```
  * import gile from "gile"
  *
  * gile.configure(
  * {
  *     algorithm : "RS256",
- *     secret: "superSecretString"
+ *     secret: "superSecretString",
+ *     defaults: {
+ *        rol: ["user"],
+ *        iss: "epicServer"
+ *    }
  * })
  * ```
+ *
+ * *note: Reassigned properties are replaced and not appended*
  */
-declare function configure(opts: GileOptions): void;
+declare function configure(options: GileOptions): void;
 export default configure;

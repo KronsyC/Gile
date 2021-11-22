@@ -15,6 +15,7 @@
         "declaration": true
     },
     "exclude": [
-        "./test.ts"
+        "./test.ts",
+        "./dist"
     ]
 }

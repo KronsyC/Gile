@@ -1,23 +1,29 @@
-import options from "./options";
+import opts from "./options";
 /**
- * This function configures gile, Always call this function before using any gile features, otherwise you will be thrown an Error
- * usage example:
+ * Configure gile, Always call this function before using any gile features, otherwise you will be thrown an Error
+ *
  * ```
  * import gile from "gile"
  *
  * gile.configure(
  * {
  *     algorithm : "RS256",
- *     secret: "superSecretString"
+ *     secret: "superSecretString",
+ *     defaults: {
+ *        rol: ["user"],
+ *        iss: "epicServer"
+ *    }
  * })
  * ```
+ *
+ * *note: Reassigned properties are replaced and not appended*
  */
-function configure(opts) {
-    if (!opts.algorithm)
-        opts.algorithm = "HS256"; // Use hmac sha-256 by default
-    Object.keys(opts).forEach(function (key) {
-        options[key] = opts[key];
+function configure(options) {
+    if (!options.algorithm)
+        options.algorithm = "HS256"; // Use hmac sha-256 by default
+    Object.keys(options).forEach(function (key) {
+        options[key] = options[key];
     });
-    options.configured = true;
+    opts.configured = true;
 }
 export default configure;

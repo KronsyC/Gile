@@ -1,7 +1,7 @@
 interface GileOptions{
     algorithm? : "HS256";
     secret     : string;
-    defaults?  : any;
+    defaults?  : Object;
 }
 
 export default GileOptions
