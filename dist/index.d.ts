@@ -5,4 +5,12 @@ import read from "./read";
 import verify from "./verify";
 import role from "./role";
 export { configure, options, create, read, verify, role };
-export default { configure: configure, options: options, create: create, read: read, verify: verify, role: role };
+declare const _default: {
+    configure: typeof configure;
+    options: any;
+    create: typeof create;
+    read: typeof read;
+    verify: typeof verify;
+    role: typeof role;
+};
+export default _default;

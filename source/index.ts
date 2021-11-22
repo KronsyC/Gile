@@ -5,7 +5,7 @@ import read from "./read"
 import verify from "./verify"
 import role from "./role"
 
-import GileOptions from "./interfaces/GileOptions";
 
-export { GileOptions }
+export { configure, options, create, read, verify, role };
 export default { configure, options, create, read, verify, role };
+

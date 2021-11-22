@@ -1,4 +1,4 @@
-import options from "./options";
+import GileOptions from "./interfaces/GileOptions";
 /**
  * This function configures gile, Always call this function before using any gile features, otherwise you will be thrown an Error
  * usage example:
@@ -12,12 +12,5 @@ import options from "./options";
  * })
  * ```
  */
-function configure(opts) {
-    if (!opts.algorithm)
-        opts.algorithm = "HS256"; // Use hmac sha-256 by default
-    Object.keys(opts).forEach(function (key) {
-        options[key] = opts[key];
-    });
-    options.configured = true;
-}
+declare function configure(opts: GileOptions): void;
 export default configure;

@@ -11,7 +11,8 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "outDir": "dist",
-        "module": "ESNext"
+        "module": "ESNext",
+        "declaration": true
     },
     "exclude": [
         "./test.ts"
