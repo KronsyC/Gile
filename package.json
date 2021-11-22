@@ -1,6 +1,6 @@
 {
   "name": "gile",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Custom JWT library i'm working on. Email me at kronsycanty@gmail.com if you have any suggestions",
   "main": "./dist",
   "repository": "https://github.com/KronsyC/Gile",
