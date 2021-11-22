@@ -11,8 +11,10 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "outDir": "dist",
-        "module": "ESNext",
-        "declaration": true
+        "module": "commonjs",
+        "declaration": true,
+        "strict": true,
+        "moduleResolution": "node"
     },
     "exclude": [
         "./test.ts",

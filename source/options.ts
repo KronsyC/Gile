@@ -1,6 +1,4 @@
 import GileOptions from "./interfaces/GileOptions"
 
-const optionsStore : any = {}
-
-
+let optionsStore : any = {}
 export default optionsStore

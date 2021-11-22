@@ -1,6 +1,6 @@
 import GileOptions from "./interfaces/GileOptions";
 /**
- * Configure gile, Always call this function before using any gile features, otherwise you will be thrown an Error
+ * Convenient way to configure Gile so you dont have to repeat configuration
  *
  * ```
  * import gile from "gile"
@@ -16,7 +16,7 @@ import GileOptions from "./interfaces/GileOptions";
  * })
  * ```
  *
- * *note: Reassigned properties are replaced and not appended*
+ * *note: Reassigned properties are replaced*
  */
 declare function configure(options: GileOptions): void;
 export default configure;

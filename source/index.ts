@@ -1,11 +1,13 @@
 import configure from "./configure";
-import options from "./options";
 import create from "./create"
-import read from "./read"
-import verify from "./verify"
-import role from "./role"
+import config from "./options"
+
+// Temp debugging function PROD: Remove
+function show(){
+    console.log(config)
+}
 
 
-export { configure, options, create, read, verify, role };
-export default { configure, options, create, read, verify, role };
+export { configure, create, show };
+export default { configure, create, show };
 

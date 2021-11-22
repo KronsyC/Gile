@@ -1,6 +1,6 @@
-interface GileOptions {
-    algorithm?: "HS256";
-    secret: string;
-    defaults?: Object;
+import EncryptOpts from "./EncryptOptions";
+import DecryptOpts from "./DecryptOptions";
+interface GileOptions extends EncryptOpts, DecryptOpts {
+    defaults?: object;
 }
 export default GileOptions;

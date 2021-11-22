@@ -1,15 +1,20 @@
-import jws from "jws";
-import options from "./options";
-import read from "./read";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+var jws_1 = __importDefault(require("jws"));
+var options_1 = __importDefault(require("./options"));
+var read_1 = __importDefault(require("./read"));
 /**
  * Return True if a token has the specified role, otherwise false
  */
 function role(token, role) {
-    if (!options.configured) {
+    if (!options_1["default"].configured) {
         throw new Error("Attempted to create a token, but no configuration detected");
     }
-    if (jws.isValid(token) && jws.verify(token, options.algorithm, options.secret)) {
-        var data = read(token);
+    if (jws_1["default"].isValid(token) && jws_1["default"].verify(token, options_1["default"].algorithm, options_1["default"].secret)) {
+        var data = read_1["default"](token);
         console.log("Valid");
         if (data.roles) {
             if (typeof (data.roles) === "string" && data.roles === role)
@@ -24,4 +29,4 @@ function role(token, role) {
         return false;
     }
 }
-export default role;
+exports["default"] = role;

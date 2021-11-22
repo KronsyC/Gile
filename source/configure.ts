@@ -1,9 +1,10 @@
 import GileOptions from "./interfaces/GileOptions";
-import opts from "./options";
+import config from "./options";
 
 /**
- * Configure gile, Always call this function before using any gile features, otherwise you will be thrown an Error
- * 
+ * Convenient way to configure Gile so you dont have to repeat configuration   
+ 
+ * *note: Setting nested properties deletes their siblings*
  * ```
  * import gile from "gile"
  *
@@ -18,14 +19,18 @@ import opts from "./options";
  * })
  * ```
  * 
- * *note: Reassigned properties are replaced and not appended*
+ * 
  */
+
 function configure(options: GileOptions) {
-  if (!options.algorithm) options.algorithm = "HS256"; // Use hmac sha-256 by default
-  Object.keys(options).forEach((key) => {
-    options[key] = options[key];
-  });
-  opts.configured = true;
+  const keys = Object.keys(options)
+
+  keys.forEach(  key => {
+    
+    // TODO: Implement some sort of check to replace only specific properties
+    config[key] = options[key]
+    
+  })
 }
 
 export default configure;

@@ -1,28 +1,27 @@
-import options from "./options";
-import jws from "jws";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+var options_1 = __importDefault(require("./options"));
 /**
  * Create a new JWT with the given payload
  *
  */
-function create(payload) {
-    if (!options.configured) {
-        throw new Error("Attempted to create a token, but no configuration detected");
-    }
-    if (!payload.iat) {
-        payload.iat = Math.floor(Date.now() / 1000);
-    }
-    if (options.defaults) {
-        // Iterate over the configured defaults, and if they are not set, set them
-        Object.keys(options.defaults).forEach(function (option) {
-            if (!payload[option]) {
-                payload[option] = options.defaults[option];
+function create(payload, settings) {
+    var algorithm = settings.algorithm || options_1["default"].algorithm || "HS256";
+    var header = settings.header || options_1["default"].header || { typ: "JWT", alg: algorithm };
+    var secret = settings.secret || options_1["default"].secret || undefined;
+    var privKey = settings.privateKey || options_1["default"].privateKey || undefined;
+    switch (algorithm) {
+        case "ES256":
+        case "ES384":
+        case "ES512":
+            // Asymmetrical
+            if (!privKey) {
+                throw new Error("Asymmetrical Encrytion chosen but no private key defined");
             }
-        });
+            break;
     }
-    var header = {
-        alg: options.algorithm,
-        typ: "JWT"
-    };
-    return jws.sign({ header: header, payload: payload, secret: options.secret });
 }
-export default create;
+exports["default"] = create;
