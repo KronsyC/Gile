@@ -1,6 +1,6 @@
 {
   "name": "gile",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "A Custom JWT library i'm working on. Email me at kronsycanty@gmail.com if you have any suggestions",
   "main": "./dist/index.js",
   "repository": "https://github.com/KronsyC/Gile",
@@ -11,7 +11,6 @@
   ],
   "typings": "dist/",
   "dependencies": {
-    "@types/jsonwebtoken": "^8.5.6",
     "jws": "^4.0.0"
   },
   "devDependencies": {
