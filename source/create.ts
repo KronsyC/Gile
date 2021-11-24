@@ -16,7 +16,14 @@ function create(payload: Token, settings: EncryptOpts = {}): string {
 	const privKey: string =
 		settings.privateKey || config.privateKey || undefined
 	const autoIat: Boolean = settings.autoIat || config.autoIat || true
-
+	Object.keys(config.defaults).forEach( d => {
+		
+		if( payload[d] === undefined ){
+			payload[d] = config.defaults[d]
+		}
+	} )
+	console.log(payload);
+	
 	if (autoIat && !payload.iat) {
         payload.iat = Math.floor(Date.now()/1000)
     }
@@ -39,6 +46,7 @@ function create(payload: Token, settings: EncryptOpts = {}): string {
 					"Asymmetrical Encrytion chosen but no private key defined"
 				)
 			}
+			
 			return jws.sign({
 				header: header,
 				payload: payload,

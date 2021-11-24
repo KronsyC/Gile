@@ -3,7 +3,12 @@ import jws from "jws"
 import DecryptOptions from "./interfaces/DecryptOptions"
 import Token from "./interfaces/Token"
 import TokenF from "./interfaces/TokenF"
+/**
+ * Verify a token, ensuring that it matches your secret/key,   
+ * returns a payload depending on return options
 
+ * returns null if the token is invalid
+ */
 function verify(
 	token: string,
 	options: DecryptOptions = {}
@@ -23,31 +28,33 @@ function verify(
 		alg === "RS512"
 			? options.publicKey || config.publicKey || undefined
 			: alg === "HS256" || alg === "HS384" || alg === "HS512"
-			    ? options.secret || config.secret || undefined
-			    : options.secret || config.secret
+			? options.secret || config.secret || undefined
+			: options.secret || config.secret
 
-	const returnHeader = options.returnHeader || config.returnHeader || false
-    
+	const returnHeader =
+		options.returnHeader || config.returnHeader || false
+
 	if (secOrKey && jws.verify(token, alg, secOrKey)) {
 		// All good
-		if( alg==="none"){
-            
-            if( secOrKey === "" ){
-                const warn = config.warnings || true
-                if(warn){
-                    console.error("Your secret is \"\", so tokens with no signature will pass successfully, it is recommended to add a non-empty secret to prevent this behavior")
-                }
-                if (returnHeader) {
-                    return {
-                        header: decoded.header,
-                        payload: decoded.payload,
-                    }
-                } else {
-                    return decoded.payload
-                }
-            }
-            return null
-        }
+		if (alg === "none") {
+			if (secOrKey === "") {
+				const warn = config.warnings || true
+				if (warn) {
+					console.error(
+						'Your secret is "", so tokens with no signature will pass successfully, it is recommended to add a non-empty secret to prevent this behavior'
+					)
+				}
+				if (returnHeader) {
+					return {
+						header: decoded.header,
+						payload: decoded.payload,
+					}
+				} else {
+					return decoded.payload
+				}
+			}
+			return null
+		}
 		if (returnHeader) {
 			return {
 				header: decoded.header,
