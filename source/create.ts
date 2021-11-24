@@ -58,8 +58,14 @@ function create(payload: Token, settings: EncryptOpts = {}): string {
 				payload: payload,
 				secret: secret,
 			})
+		case "none":
+			// Insecure JWT
+			return jws.sign({
+				header: header,
+				payload:payload
+			})
 	}
-	return ""
+
 }
 
 export default create

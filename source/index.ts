@@ -1,6 +1,7 @@
 import configure from "./configure";
 import create from "./create"
 import config from "./options"
+import verify from "./verify";
 
 // Temp debugging function PROD: Remove
 function show(){
@@ -8,6 +9,6 @@ function show(){
 }
 
 
-export { configure, create, show };
-export default { configure, create, show };
+export { configure, create, show, verify };
+export default { configure, create, show, verify };
 
