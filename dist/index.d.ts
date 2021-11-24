@@ -1,12 +1,14 @@
 import configure from "./configure";
-import options from "./options";
 import create from "./create";
-import getConfig from "./options";
-export { configure, options, create, getConfig };
+import verify from "./verify";
+import read from "./read";
+declare function show(): void;
+export { configure, create, show, verify, read };
 declare const _default: {
     configure: typeof configure;
-    options: any;
+    show: typeof show;
     create: typeof create;
-    getConfig: any;
+    verify: typeof verify;
+    read: typeof read;
 };
 export default _default;

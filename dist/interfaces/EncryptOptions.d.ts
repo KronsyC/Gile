@@ -4,5 +4,6 @@ interface EncryptionOptions {
     secret?: string;
     privateKey?: string;
     header?: Header;
+    autoIat?: Boolean;
 }
 export default EncryptionOptions;

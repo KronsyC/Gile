@@ -16,7 +16,7 @@ function create(payload: Token, settings: EncryptOpts = {}): string {
 	const privKey: string =
 		settings.privateKey || config.privateKey || undefined
 	const autoIat: Boolean = settings.autoIat || config.autoIat || true
-	Object.keys(config.defaults).forEach( d => {
+	config.defaults && Object.keys(config.defaults).forEach( d => {
 		
 		if( payload[d] === undefined ){
 			payload[d] = config.defaults[d]

@@ -10,5 +10,5 @@ function show(){
 
 
 export { configure, create, show, verify, read };
-export default { configure, create, show, verify, read };
+export default { configure, show, create, verify, read };
 

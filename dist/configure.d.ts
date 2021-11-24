@@ -1,7 +1,8 @@
 import GileOptions from "./interfaces/GileOptions";
 /**
  * Convenient way to configure Gile so you dont have to repeat configuration
- *
+ 
+ * *note: Setting nested properties deletes their siblings*
  * ```
  * import gile from "gile"
  *
@@ -16,7 +17,7 @@ import GileOptions from "./interfaces/GileOptions";
  * })
  * ```
  *
- * *note: Reassigned properties are replaced*
+ *
  */
 declare function configure(options: GileOptions): void;
 export default configure;
