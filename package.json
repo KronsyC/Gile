@@ -1,10 +1,10 @@
 {
   "name": "gile",
-  "version": "10.0.0",
-  "description": "A Custom JWT library i'm working on. Email me at kronsycanty@gmail.com if you have any suggestions",
+  "version": "10.0.1",
+  "description": "A JWT library with symmetric and asymmetrical encryption, based on a reusable configuration to remove lots of boilerplate code",
   "main": "./dist/index.js",
   "repository": "https://github.com/KronsyC/Gile",
-  "author": "KronsyC",
+  "author": "KronsyC <kronsycanty@gmail.com>",
   "license": "MIT",
   "files": [
     "dist"
@@ -28,6 +28,10 @@
     "web token",
     "json",
     "gile",
-    "jsonwebtoken"
+    "jsonwebtoken",
+    "JWT",
+    "json web token",
+    "symmetric token",
+    "asymmetric token"
   ]
 }
