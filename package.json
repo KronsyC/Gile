@@ -22,5 +22,14 @@
   },
   "scripts": {
     "publish:patch": "tsc&&npm version patch --no-git-tag-version&&npm publish"
-  }
+  },
+  "keywords": [
+    "auth",
+    "authentication",
+    "jwt",
+    "web token",
+    "json",
+    "gile",
+    "jsonwebtoken"
+  ]
 }
